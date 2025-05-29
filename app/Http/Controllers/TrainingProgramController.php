@@ -12,7 +12,9 @@ class TrainingProgramController extends Controller
      */
     public function index()
     {
-        //
+        return view('training-programs.index', [
+            'programs' => TrainingProgram::select('name', 'description')->get(),
+        ]);
     }
 
     /**

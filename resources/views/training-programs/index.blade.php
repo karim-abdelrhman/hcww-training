@@ -7,7 +7,8 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">البرامج التدريبية</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/البرامج</span>
+                <h4 class="content-title mb-0 my-auto">البرامج التدريبية</h4><span
+                    class="text-muted mt-1 tx-13 mr-2 mb-0">/البرامج</span>
             </div>
         </div>
     </div>
@@ -19,10 +20,8 @@
             <div class="card mg-b-20">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        @can('bt-add-trainer')
-                            <a href="{{route('trainers.create')}}" class="modal-effect btn btn-outline-primary btn-sm">اضافة
-                                برنامج</a>
-                        @endcan
+                        <a href="{{route('training-programs.create')}}"
+                           class="modal-effect btn btn-outline-primary btn-sm">إضافة برنامج تدريبي</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -32,7 +31,7 @@
                             <thead>
                             <tr>
                                 <th class="border-bottom-0">اسم البرنامج</th>
-                                <th class="border-bottom-0">الوصصف</th>
+                                <th class="border-bottom-0">الوصف</th>
 
                                 <th class="border-bottom-0">العمليات</th>
                             </tr>
@@ -47,9 +46,13 @@
                                         {{ $program->description }}
                                     </td>
                                     <td>
-                                        <a href="{{route('training-programs.show' , $program->id)}}" class="btn btn-outline-info btn-sm">عرض</a>
-                                        <a href="{{route('training-programs.edit' , $program->id)}}" class="btn btn-outline-success btn-sm">تعديل</a>
-                                        <form action="{{route('training-programs.destroy', $program->id)}}" method="post" class="d-inline-block" onsubmit="return confirm('Are you sure?\nThis action can NOT be reversed.')">
+                                        <a href="{{route('training-programs.show' , $program->id)}}"
+                                           class="btn btn-outline-info btn-sm">عرض</a>
+                                        <a href="{{route('training-programs.edit' , $program->id)}}"
+                                           class="btn btn-outline-success btn-sm">تعديل</a>
+                                        <form action="{{route('training-programs.destroy', $program->id)}}"
+                                              method="post" class="d-inline-block"
+                                              onsubmit="return confirm('Are you sure?\nThis action can NOT be reversed.')">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-outline-danger btn-sm">حذف

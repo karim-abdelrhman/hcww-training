@@ -29,6 +29,7 @@ use App\Http\Controllers\TrainerDetailsController;
 use App\Http\Controllers\TrainingCenterController;
 use App\Http\Controllers\TrainingHallController;
 use App\Http\Controllers\TrainingplacesController;
+use App\Http\Controllers\TrainingProgramController;
 use App\Http\Controllers\TrainingProgramsController;
 use App\Http\Controllers\TrProgramsController;
 use App\Http\Controllers\RoleController;
@@ -120,7 +121,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('employee',  EmployeeController::class);
     Route::get('/Comp/{id}', [EmployeeController::class,'getOrgUnit']);
     Route::resource('empDocs',PrEmpDocController::class);
+
+
     /*****************************  Training_programs   البرامج التدريبية  *****************************/
+    Route::resource('training-programs' , TrainingProgramController::class);
     Route::resource('train_program',  TrProgramsController::class);
     Route::resource('programDet',  TrProgramsController::class);
     Route::resource('mater',  MaterialsController::class);
