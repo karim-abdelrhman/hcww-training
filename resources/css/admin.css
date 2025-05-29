@@ -1,0 +1,11 @@
+@import '@tabler/core/dist/css/tabler.min.css';
+@import '@tabler/core/dist/css/tabler-vendors.min.css';
+@import '../../public/assets/admin/css/custom.css';
+@import '../../public/assets/admin/dist/fontawesome-5.11.2/css/all.min.css';
+@import '../../public/assets/admin/dist/iconpicker-1.5.0.css';
+@import "notyf/notyf.min.css";
+@import '@fortawesome/fontawesome-free/css/all.css';
+/*@import 'fontawesome-iconpicker/dist/css/fontawesome-iconpicker.min.css';*/
+.ts-dropdown {
+    right: auto;
+}
