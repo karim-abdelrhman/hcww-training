@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('general_manager_phone')->nullable();
             $table->string('hr_name');
             $table->string('hr_phone')->nullable();
-            $table->foreignId('company_id')->constrained('lucompanies')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('company_id')->constrained('companies')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

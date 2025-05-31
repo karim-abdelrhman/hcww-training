@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lugrades', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('degrees', function (Blueprint $table) {
+            $table->id();
             $table->string('code');
             $table->string('name');
             $table->string('comm')->nullable();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lugrades');
+        Schema::dropIfExists('degrees');
     }
 };

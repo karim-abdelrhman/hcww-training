@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lupositions', function (Blueprint $table) {
-            $table->bigIncrements('id');
-	        $table->string('code');
+        Schema::create('levels', function (Blueprint $table) {
+            $table->id();
+            $table->string('code');
             $table->string('name');
-	        $table->string('comm')->nullable();
+            $table->string('comm')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();
-
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lupositions');
+        Schema::dropIfExists('levels');
     }
 };

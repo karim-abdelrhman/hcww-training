@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('trainers', function (Blueprint $table) {
-            $table->dropUnique('TRAINERS_ID_IMAGE_UK');
+            $table->dropUnique('trainers_id_image_unique');
             $table->string('image')->nullable();
         });
     }

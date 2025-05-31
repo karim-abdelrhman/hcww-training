@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('degree');
             $table->string('university');
             $table->string('position');
-            $table->enum('accreditation_type', ['فني', 'مالي' , 'قانوني' , 'مالي' , 'it' , 'أخري']);
+            $table->enum('accreditation_type', ['فني', 'مالي' , 'قانوني'  , 'it' , 'أخري']);
             $table->enum('accreditation_category', ['دكتوراه', 'ماجيستير' , 'مستشار متخصص']);
             $table->string('interview_evaluation');
             $table->string('coach_accreditation');

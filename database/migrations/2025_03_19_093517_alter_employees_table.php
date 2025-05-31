@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('employees', function (Blueprint $table) {
-           $table->dropForeign(['employee_type_id']);
+//           $table->dropForeign(['employee_type_id']);
            $table->after('insurance_number' , function ($table) {
                $table->integer('age')->nullable();
                $table->string('cv')->nullable();

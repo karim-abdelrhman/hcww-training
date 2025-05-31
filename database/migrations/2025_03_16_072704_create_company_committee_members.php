@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('company_committee_members', function (Blueprint $table) {
             $table->id();
             $table->foreignId('company_id')->constrained('company_committees')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('employee_id')->constrained('EMPLOYEES' , 'ID')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('employee_id')->constrained('employees' )->onDelete('cascade')->onUpdate('cascade');
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->timestamps();

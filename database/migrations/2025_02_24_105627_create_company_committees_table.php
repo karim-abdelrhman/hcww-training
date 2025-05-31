@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('company_committees', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')->constrained('LUCOMPANIES' , 'ID')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('company_id')->constrained('companies' , 'ID')->onDelete('cascade')->onUpdate('cascade');
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->timestamps();

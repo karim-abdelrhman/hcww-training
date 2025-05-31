@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lufaculties', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('positions', function (Blueprint $table) {
+            $table->id();
 	        $table->string('code');
             $table->string('name');
 	        $table->string('comm')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();
+
         });
     }
 
@@ -27,6 +28,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lufaculties');
+        $table->id();
+        Schema::dropIfExists('positions');
     }
 };

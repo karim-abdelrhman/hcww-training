@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tr_programs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('jobs', function (Blueprint $table) {
+            $table->id();
+            $table->string('code');
             $table->string('name');
-            $table->string('type')->nullable();
-            $table->integer('comm')->nullable();
-            $table->string('created_by')->nullable();
-            $table->string('updated_by')->nullable();
+            $table->string('comm')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
+
         });
     }
 
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tr_programs');
+        Schema::dropIfExists('jobs');
     }
 };
