@@ -43,8 +43,7 @@
                         href="https://mcww.com.eg/it">إدارة التطبيقات</a> بقطاع تكنولوجيا المعلومات والتحول الرقمى بشركة مياه الشرب والصرف الصحى بالمنوفية.</span>
     </div>
 </div>
-<!-- Footer closed -->
-<!-- Back-to-top -->
+
 <a href="#top" id="back-to-top"><i class="las la-angle-double-up"></i></a>
 <!-- JQuery min js -->
 {{--@vite(['resources/js/admin.js'])--}}
@@ -75,7 +74,7 @@
 <!-- Eva-icons js -->
 <script src="{{URL::asset('assets/js/eva-icons.min.js')}}"></script>
 @yield('js')
-
+@stack('js')
 <!-- Sticky js -->
 <script src="{{URL::asset('assets/js/sticky.js')}}"></script>
 <!-- custom js -->

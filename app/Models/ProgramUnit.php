@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class ProgramUnit extends Model
 {
     use HasFactory;
+    protected $table = 'program_units';
     protected $fillable = ['name' , 'content' , 'program_id'];
     public function program() : BelongsTo
     {

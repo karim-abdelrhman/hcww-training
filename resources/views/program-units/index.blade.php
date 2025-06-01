@@ -30,30 +30,26 @@
                                style="text-align: center">
                             <thead>
                             <tr>
-                                <th class="border-bottom-0">اسم البرنامج</th>
-                                <th class="border-bottom-0">الوصف</th>
-                                <th class="border-bottom-0">عدد الوحدات</th>
+                                <th class="border-bottom-0">اسم الوحدة</th>
+                                <th class="border-bottom-0">المحتوي</th>
                                 <th class="border-bottom-0">العمليات</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach ($programs as $program)
+                            @foreach ($units as $unit)
                                 <tr>
                                     <td>
                                         {{ $program->name }}
                                     </td>
                                     <td>
-                                        {{ $program->description }}
+                                        {{ $program->content }}
                                     </td>
                                     <td>
-                                        {{ $program->units()->count() }}
-                                    </td>
-                                    <td>
-                                        <a href="{{route('training-programs.show' , $program->id)}}"
+                                        <a href="{{route('training-programs.show' , $unit->id)}}"
                                            class="btn btn-outline-info btn-sm">عرض</a>
-                                        <a href="{{route('training-programs.edit' , $program->id)}}"
+                                        <a href="{{route('training-programs.edit' , $unit->id)}}"
                                            class="btn btn-outline-success btn-sm">تعديل</a>
-                                        <form action="{{route('training-programs.destroy', $program->id)}}"
+                                        <form action="{{route('training-programs.destroy', $unit->id)}}"
                                               method="post" class="d-inline-block"
                                               onsubmit="return confirm('Are you sure?\nThis action can NOT be reversed.')">
                                             @csrf

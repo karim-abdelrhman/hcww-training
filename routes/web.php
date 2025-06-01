@@ -22,6 +22,7 @@ use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PrEmpDocController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProgramUnitController;
 use App\Http\Controllers\QualController;
 use App\Http\Controllers\TraineesController;
 use App\Http\Controllers\TrainerController;
@@ -125,6 +126,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     /*****************************  Training_programs   البرامج التدريبية  *****************************/
     Route::resource('training-programs' , TrainingProgramController::class);
+    Route::get('training-programs/{id}/units' ,[ProgramUnitController::class,'index']);
     Route::resource('train_program',  TrProgramsController::class);
     Route::resource('programDet',  TrProgramsController::class);
     Route::resource('mater',  MaterialsController::class);
