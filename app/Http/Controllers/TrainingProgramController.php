@@ -71,7 +71,7 @@ class TrainingProgramController extends Controller
      */
     public function show(TrainingProgram $trainingProgram)
     {
-        dd($trainingProgram);
+        dd($trainingProgram->load('units'));
     }
 
     /**

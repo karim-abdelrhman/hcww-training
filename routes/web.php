@@ -126,7 +126,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     /*****************************  Training_programs   البرامج التدريبية  *****************************/
     Route::resource('training-programs' , TrainingProgramController::class);
-    Route::get('training-programs/{id}/units' ,[ProgramUnitController::class,'index']);
+    Route::get('training-programs/{trainingProgram}/units' ,[ProgramUnitController::class,'index'])->name('program-units');
+    Route::delete('training-programs/units/delete',[ProgramUnitController::class,'destroy'])->name('unit-delete');
+    Route::post('training-programs/units/store',[ProgramUnitController::class,'store'])->name('unit-store');
+
     Route::resource('train_program',  TrProgramsController::class);
     Route::resource('programDet',  TrProgramsController::class);
     Route::resource('mater',  MaterialsController::class);

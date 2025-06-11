@@ -46,7 +46,9 @@
                                         {{ $program->description }}
                                     </td>
                                     <td>
-                                        {{ $program->units()->count() }}
+                                        <a href="{{route('program-units' , $program->id)}}">
+                                            {{ $program->units()->count() }}
+                                        </a>
                                     </td>
                                     <td>
                                         <a href="{{route('training-programs.show' , $program->id)}}"

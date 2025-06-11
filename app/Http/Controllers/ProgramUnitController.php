@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProgramUnit;
 use App\Models\TrainingProgram;
 use Illuminate\Http\Request;
 
@@ -10,9 +11,11 @@ class ProgramUnitController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(TrainingProgram $trainingProgram)
+    public function index($id)
     {
-        dd($trainingProgram);
+        $units = ProgramUnit::where('program_id', $id)->get();
+        $program = TrainingProgram::findOrFail($id);
+        return view('program-units.index', compact('units' , 'program'));
     }
 
     /**
@@ -28,7 +31,20 @@ class ProgramUnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd($request);
+        $program = TrainingProgram::select('name')->where('id' , $request->program_id)->first();
+//        dd($program);
+        $data = $request->validate([
+            'program_id' => 'required',
+            'name' => 'required',
+            'content' => 'required|file|mimes:pdf',
+        ]);
+//        dd($data);
+        $data['content'] = $request['content']->store($program->name . '/units');
+//        dd($data);
+        ProgramUnit::create($data);
+        flash()->addSuccess('تم إضافة الوحدة بنجاح');
+        return redirect()->back();
     }
 
     /**
@@ -58,8 +74,11 @@ class ProgramUnitController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        $unit = ProgramUnit::findOrFail($request->unit);
+        $unit->delete();
+        flash()->addSuccess('عملية حذف ناجحة' , 'عملية ناجحة');
+        return redirect()->back();
     }
 }
